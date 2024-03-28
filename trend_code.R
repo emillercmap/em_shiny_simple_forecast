@@ -28,7 +28,7 @@ df_trim <- df_trim |>
          lin_b_2030 = x2020 + growth_rate_2000_2020,
          lin_b_2040 = x2020 + (growth_rate_2000_2020*2),
          lin_b_2050 = x2020 + (growth_rate_2000_2020*3)) |> 
-  select(!growth_rate_1990_2010)
+  select(!growth_rate_2000_2020)
 
 # Expo C  -- 2010 - 2020 ---------------------------------------------------
 

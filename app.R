@@ -30,8 +30,8 @@ ui <- fluidPage(
     column(4,
       selectizeInput("muni", "What municipality would you like to view?", df$muni),
       checkboxGroupInput("trend", "What trends would you like to see?", 
-                         choices = c("Linear Trend: 2000 - 2010", "Linear Trend: 1990 - 2010",
-                                     "Exponential Trend: 2000 - 2010", "Exponential Trend: 1990 - 2010"),
+                         choices = c("Linear Trend: 2010 - 2020", "Linear Trend: 2000 - 2020",
+                                     "Exponential Trend: 2010 - 2020", "Exponential Trend: 2000 - 2020"),
       ),
     )
     ),
@@ -84,10 +84,10 @@ server <- function(input, output) {
                 linewidth = 1.5)+
       scale_y_continuous(labels = scales::comma) +
       expand_limits(y = 0) +  # Ensures y-axis starts at 0
-      scale_color_manual(values = c("Linear Trend: 2000 - 2010" = "#00665c",
-                                    "Linear Trend: 1990 - 2010" = "#b7e572",
-                                    "Exponential Trend: 2000 - 2010" = "#3f0030",
-                                    "Exponential Trend: 1990 - 2010" = "#36d8ca")) +
+      scale_color_manual(values = c("Linear Trend: 2010 - 2020" = "#00665c",
+                                    "Linear Trend: 2000 - 2020" = "#b7e572",
+                                    "Exponential Trend: 2010 - 2020" = "#3f0030",
+                                    "Exponential Trend: 2000 - 2020" = "#36d8ca")) +
       theme_cmap(xlab = "Year",
                  ylab = "Population") +
       labs(

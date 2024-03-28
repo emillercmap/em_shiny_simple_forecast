@@ -10,7 +10,7 @@ options(scipen = 999)
 df <- read_rds("trends.rdata")
 
 df %>%
-  filter(if_any(lin_a_2020:exp_d_2050, is.na))
+  filter(if_any(lin_a_2030:exp_d_2050, is.na))
 
 # data frame with census data
 df1 <- df %>%
@@ -25,7 +25,7 @@ df1$year <- as.numeric(gsub("x", "", df1$year)) # remove x's from year column
 
 # dataframe of forecast data
 df2 <- df %>%
-  pivot_longer(lin_a_2020:exp_d_2050,
+  pivot_longer(lin_a_2030:exp_d_2050,
                names_to = "forecast_method_year",
                values_to = "value") %>%
   separate(forecast_method_year,
@@ -47,11 +47,11 @@ df_tidy %>%
 
 
 # rename trends
-df_tidy[ df_tidy == "census"] <- "Census Data 1990-2020"
-df_tidy[ df_tidy == "exp_c"] <- "Exponential Trend: 2000 - 2010"
-df_tidy[ df_tidy == "exp_d"] <- "Exponential Trend: 1990 - 2010"
-df_tidy[ df_tidy == "lin_a"] <- "Linear Trend: 2000 - 2010"
-df_tidy[ df_tidy == "lin_b"] <- "Linear Trend: 1990 - 2010"
+df_tidy[ df_tidy == "census"] <- "Census Data 2000 - 2020"
+df_tidy[ df_tidy == "exp_c"] <- "Exponential Trend: 2010 - 2020"
+df_tidy[ df_tidy == "exp_d"] <- "Exponential Trend: 2000 - 2020"
+df_tidy[ df_tidy == "lin_a"] <- "Linear Trend: 2010 - 2020"
+df_tidy[ df_tidy == "lin_b"] <- "Linear Trend: 2000 - 2020"
 
 df_tidy <- df_tidy %>%
   mutate(trend = as_factor(trend))
