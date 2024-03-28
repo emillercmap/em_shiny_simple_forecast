@@ -30,25 +30,23 @@ df_trim <- df_trim |>
          lin_b_2050 = x2020 + (growth_rate_2000_2020*3)) |> 
   select(!growth_rate_1990_2010)
 
-# Expo C  -- 2000 - 2010 ---------------------------------------------------
+# Expo C  -- 2010 - 2020 ---------------------------------------------------
 
 df_trim <- df_trim |> 
-  mutate(growth_rate_2000_2010_exp = x2010/x2000,
-         exp_c_2020 = x2010 * growth_rate_2000_2010_exp,
-         exp_c_2030 = x2010 * (growth_rate_2000_2010_exp^2),
-         exp_c_2040 = x2010 * (growth_rate_2000_2010_exp^3),
-         exp_c_2050 = x2010 * (growth_rate_2000_2010_exp^4)) |> 
-  select(!growth_rate_2000_2010_exp)
+  mutate(growth_rate_2010_2020_exp = x2020/x2010,
+         exp_c_2030 = x2020 * growth_rate_2010_2020_exp,
+         exp_c_2040 = x2020 * (growth_rate_2010_2020_exp^2),
+         exp_c_2050 = x2020 * (growth_rate_2010_2020_exp^3)) |> 
+  select(!growth_rate_2010_2020_exp)
 
-# Expo D -- 1990 - 2010 ---------------------------------------------------
+# Expo D -- 2000 - 2020 ---------------------------------------------------
 
 df_trim <- df_trim |> 
-  mutate(growth_rate_1990_2010_exp = x2010/x1990,
-         exp_d_2020 = x2010 * growth_rate_1990_2010_exp,
-         exp_d_2030 = x2010 * (growth_rate_1990_2010_exp^2),
-         exp_d_2040 = x2010 * (growth_rate_1990_2010_exp^3),
-         exp_d_2050 = x2010 * (growth_rate_1990_2010_exp^4)) |> 
-  select(!growth_rate_1990_2010_exp)
+  mutate(growth_rate_2000_2020_exp = x2020/x2000,
+         exp_d_2030 = x2010 * growth_rate_2000_2020_exp,
+         exp_d_2040 = x2010 * (growth_rate_2000_2020_exp^2),
+         exp_d_2050 = x2010 * (growth_rate_2000_2020_exp^3)) |> 
+  select(!growth_rate_2000_2020_exp)
 
 saveRDS(df_trim,"trends.rdata")
 

@@ -14,8 +14,8 @@ df <- read_rds("trendstidy.rdata")
 
 # turn off scientific notation
 
-trend_names <- c("Linear Trend: 2000 - 2010", "Linear Trend: 1990 - 2010",
-                 "Exponential Trend: 2000 - 2010", "Exponential Trend: 1990 - 2010")
+trend_names <- c("Linear Trend: 2010 - 2020", "Linear Trend: 2000 - 2020",
+                 "Exponential Trend: 2010 - 2020", "Exponential Trend: 2000 - 2020")
 # APP BUILDING
 
 # Define UI for application that draws a graph of parsimonious predictions
