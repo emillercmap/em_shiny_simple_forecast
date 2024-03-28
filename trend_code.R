@@ -1,7 +1,7 @@
 library(tidyverse)
 
 #notes -- why not 284?
-  ## a few not incorporated til post 2000 but still in with misisng data
+  ## a few not incorporated til post 2000 but still in with missing data
   ## add exponential smoothing
   ## exponential could be average of two years or something 
 
@@ -12,24 +12,22 @@ df_trim <- df |>
   select(name = x1, x1950:x2020)
 
 
-# Linear A -- 2000 - 2010 ------------------------------------------------
+# Linear A -- 2010 - 2020 ------------------------------------------------
 
 df_trim <- df_trim |> 
-  mutate(growth_rate_2000_2010 = x2010 - x2000,
-         lin_a_2020 = x2010 + growth_rate_2000_2010,
-         lin_a_2030 = x2010 + (growth_rate_2000_2010*2),
-         lin_a_2040 = x2010 + (growth_rate_2000_2010*3),
-         lin_a_2050 = x2010 + (growth_rate_2000_2010*4)) |> 
-  select(!growth_rate_2000_2010)
+  mutate(growth_rate_2010_2020 = x2020 - x2010,
+         lin_a_2030 = x2020 + growth_rate_2010_2020,
+         lin_a_2040 = x2020 + (growth_rate_2010_2020*2),
+         lin_a_2050 = x2020 + (growth_rate_2010_2020*3))|> 
+  select(!growth_rate_2010_2020)
 
-# Linear B -- 1990  -2010 ---------------------------------------------------
+# Linear B -- 2000  - 2020 ---------------------------------------------------
 
 df_trim <- df_trim |> 
-  mutate(growth_rate_1990_2010 = (x2010 - x1990)/2,
-         lin_b_2020 = x2010 + growth_rate_1990_2010,
-         lin_b_2030 = x2010 + (growth_rate_1990_2010*2),
-         lin_b_2040 = x2010 + (growth_rate_1990_2010*3),
-         lin_b_2050 = x2010 + (growth_rate_1990_2010*4)) |> 
+  mutate(growth_rate_2000_2020 = (x2020 - x2000)/2,
+         lin_b_2030 = x2020 + growth_rate_2000_2020,
+         lin_b_2040 = x2020 + (growth_rate_2000_2020*2),
+         lin_b_2050 = x2020 + (growth_rate_2000_2020*3)) |> 
   select(!growth_rate_1990_2010)
 
 # Expo C  -- 2000 - 2010 ---------------------------------------------------
