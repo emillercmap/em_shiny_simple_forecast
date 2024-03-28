@@ -5,7 +5,9 @@ library(cmapplot)
 library(shinythemes)
 library(plotly)
 library(ggtext)
+library(usethis)
 library(forcats)
+
 
 # read data
 df <- read_rds("trendstidy.rdata")
