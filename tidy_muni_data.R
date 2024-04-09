@@ -3,14 +3,12 @@ library(plotly)
 library(cmapplot)
 library(ggtext)
 
-df <- read_rds("trends.rdata")
-
 options(scipen = 999)
 
 df <- read_rds("trends.rdata")
 
 df %>%
-  filter(if_any(lin_a_2030:exp_d_2050, is.na))
+  filter(if_any(lin_a_2020:exp_d_2050, is.na))
 
 # data frame with census data
 df1 <- df %>%
@@ -25,7 +23,7 @@ df1$year <- as.numeric(gsub("x", "", df1$year)) # remove x's from year column
 
 # dataframe of forecast data
 df2 <- df %>%
-  pivot_longer(lin_a_2030:exp_d_2050,
+  pivot_longer(lin_a_2020:exp_d_2050,
                names_to = "forecast_method_year",
                values_to = "value") %>%
   separate(forecast_method_year,

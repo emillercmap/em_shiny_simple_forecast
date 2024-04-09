@@ -67,7 +67,7 @@ server <- function(input, output) {
     
     # Filter census data
     census_data <- df %>%
-      filter(muni == input$muni, trend == "Census Data 1990-2020")
+      filter(muni == input$muni, trend == "Census Data 2000 - 2020")
     
     # Bind census data to filtered_data
     final_data <- bind_rows(filtered_data, census_data)

@@ -16,6 +16,7 @@ df_trim <- df |>
 
 df_trim <- df_trim |> 
   mutate(growth_rate_2010_2020 = x2020 - x2010,
+         lin_a_2020 = x2020,
          lin_a_2030 = x2020 + growth_rate_2010_2020,
          lin_a_2040 = x2020 + (growth_rate_2010_2020*2),
          lin_a_2050 = x2020 + (growth_rate_2010_2020*3))|> 
@@ -25,6 +26,7 @@ df_trim <- df_trim |>
 
 df_trim <- df_trim |> 
   mutate(growth_rate_2000_2020 = (x2020 - x2000)/2,
+         lin_b_2020 = x2020,
          lin_b_2030 = x2020 + growth_rate_2000_2020,
          lin_b_2040 = x2020 + (growth_rate_2000_2020*2),
          lin_b_2050 = x2020 + (growth_rate_2000_2020*3)) |> 
@@ -34,6 +36,7 @@ df_trim <- df_trim |>
 
 df_trim <- df_trim |> 
   mutate(growth_rate_2010_2020_exp = x2020/x2010,
+         exp_c_2020 = x2020,
          exp_c_2030 = x2020 * growth_rate_2010_2020_exp,
          exp_c_2040 = x2020 * (growth_rate_2010_2020_exp^2),
          exp_c_2050 = x2020 * (growth_rate_2010_2020_exp^3)) |> 
@@ -43,13 +46,14 @@ df_trim <- df_trim |>
 
 df_trim <- df_trim |> 
   mutate(growth_rate_2000_2020_exp = x2020/x2000,
+         exp_d_2020 = x2020,
          exp_d_2030 = x2010 * growth_rate_2000_2020_exp,
          exp_d_2040 = x2010 * (growth_rate_2000_2020_exp^2),
          exp_d_2050 = x2010 * (growth_rate_2000_2020_exp^3)) |> 
   select(!growth_rate_2000_2020_exp)
 
-saveRDS(df_trim,"trends.rdata")
 
 # Expo E (Smoothing) ------------------------------------------------------
 
 
+saveRDS(df_trim,"trends.rdata")
