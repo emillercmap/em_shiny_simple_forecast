@@ -1,4 +1,5 @@
 library(tidyverse)
+library(fpp2)
 
 #notes -- why not 284?
   ## a few not incorporated til post 2000 but still in with missing data
@@ -47,13 +48,15 @@ df_trim <- df_trim |>
 df_trim <- df_trim |> 
   mutate(growth_rate_2000_2020_exp = x2020/x2000,
          exp_d_2020 = x2020,
-         exp_d_2030 = x2010 * growth_rate_2000_2020_exp,
-         exp_d_2040 = x2010 * (growth_rate_2000_2020_exp^2),
-         exp_d_2050 = x2010 * (growth_rate_2000_2020_exp^3)) |> 
+         exp_d_2030 = x2020 * growth_rate_2000_2020_exp,
+         exp_d_2040 = x2020 * (growth_rate_2000_2020_exp^2),
+         exp_d_2050 = x2020 * (growth_rate_2000_2020_exp^3)) |> 
   select(!growth_rate_2000_2020_exp)
 
 
 # Expo E (Smoothing) ------------------------------------------------------
+ets
+
 
 
 saveRDS(df_trim,"trends.rdata")

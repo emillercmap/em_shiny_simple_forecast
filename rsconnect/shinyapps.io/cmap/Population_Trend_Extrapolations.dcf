@@ -1,0 +1,13 @@
+name: Population_Trend_Extrapolations
+title: Population_Trend_Extrapolations
+username: cmap
+account: cmap
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11558958
+bundleId: 8482948
+url: https://cmap.shinyapps.io/Population_Trend_Extrapolations/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|Alexis_Tool_test.xlsx|muni_data.xlsx|Rplots.pdf|tidy_muni_data.R|trend_code.R|trends.rdata

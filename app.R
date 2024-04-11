@@ -20,6 +20,7 @@ trend_names <- c("Linear Trend: 2010 - 2020", "Linear Trend: 2000 - 2020",
 
 # Define UI for application that draws a graph of parsimonious predictions
 ui <- fluidPage(
+  tags$head(tags$style('body {font-family: Whitney;}')),
   theme = shinytheme("lumen"),
   
   # Application title
@@ -98,7 +99,10 @@ server <- function(input, output) {
         color = "Trends"
       ) +
       theme(plot.title = element_text(size = 22)) +
-      scale_y_continuous(labels = scales::comma)
+      scale_y_continuous(labels = scales::comma) +
+      theme(text =element_text(family = "Whitney"),
+            axis.text = element_text(family = "Whitney"),
+            plot.title = element_text(face = "bold", family = "Whitney"))
     
     ggplotly(p)
   })
